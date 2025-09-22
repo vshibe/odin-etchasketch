@@ -52,6 +52,7 @@ document.getElementById("grid-size").addEventListener("click", (e) => {
 });
 
 document.getElementById("grid-clear").addEventListener("click", clearGrid);
+document.getElementById("grid-rgb").addEventListener("click", e => rgbMode = !rgbMode);
 
 removeGrid();
 createGrid(5,5);
