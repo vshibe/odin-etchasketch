@@ -3,10 +3,19 @@
 	padding: 0px;
 }
 
+body {
+	margin: auto;
+}
+
 #grid-container {
 	display: flex;
 	flex-flow: row wrap;
 	border: solid 4px black;
 	height: 600px;
 	width: 600px;
+}
+
+.grid-block {
+	box-sizing: border-box;
+	border: solid 1px gray;
 }

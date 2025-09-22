@@ -1,5 +1,7 @@
-let bgColor = "gray";
+let bgColor = "white";
 let fillColor = "black";
+let rgbMode = false;
+let colors = ["red", "blue", "green", "yellow", "orange", "pink", "purple"];
 
 function createGrid(xsize, ysize) {
 	const grid = document.getElementById("grid-container");
@@ -13,7 +15,8 @@ function createGrid(xsize, ysize) {
 		new_block.style.height = 100/ysize + "%";
 
 		new_block.addEventListener("mouseenter", (e) => {
-			e.target.style.backgroundColor = fillColor;
+			let color = rgbMode ? colors[Math.floor(Math.random()*colors.length)] : fillColor;
+			e.target.style.backgroundColor = color;
 		});
 
 		grid.appendChild(new_block);
