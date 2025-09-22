@@ -2,6 +2,7 @@ let bgColor = "white";
 let fillColor = "black";
 let rgbMode = false;
 let colors = ["red", "blue", "green", "yellow", "orange", "pink", "purple"];
+let borders = true;
 
 function createGrid(xsize, ysize) {
 	const grid = document.getElementById("grid-container");
@@ -10,6 +11,7 @@ function createGrid(xsize, ysize) {
 		const new_block = document.createElement("div");
 		new_block.style.backgroundColor = bgColor;
 		new_block.classList.add("grid-block");
+		new_block.classList.add("grid-border");
 
 		new_block.style.width = 100/xsize + "%";
 		new_block.style.height = 100/ysize + "%";
@@ -21,6 +23,23 @@ function createGrid(xsize, ysize) {
 
 		grid.appendChild(new_block);
 	};
+};
+
+function toggleBorders() {
+	const grid = document.getElementById("grid-container");	
+	
+	if(borders) {
+		for(const block of grid.childNodes) {
+			block.classList.remove("grid-border");
+		};
+	}
+	else {
+		for(const block of grid.childNodes) {
+			block.classList.add("grid-border");
+		};
+	};
+	
+	borders = !borders;
 };
 
 function clearGrid() {
@@ -53,6 +72,7 @@ document.getElementById("grid-size").addEventListener("click", (e) => {
 
 document.getElementById("grid-clear").addEventListener("click", clearGrid);
 document.getElementById("grid-rgb").addEventListener("click", e => rgbMode = !rgbMode);
+document.getElementById("grid-borders").addEventListener("click", toggleBorders);
 
 removeGrid();
 createGrid(5,5);
