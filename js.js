@@ -11,7 +11,10 @@ function createGrid(xsize, ysize) {
 		const new_block = document.createElement("div");
 		new_block.style.backgroundColor = bgColor;
 		new_block.classList.add("grid-block");
-		new_block.classList.add("grid-border");
+		
+		if(borders) {
+			new_block.classList.add("grid-border")
+		};
 
 		new_block.style.width = 100/xsize + "%";
 		new_block.style.height = 100/ysize + "%";
